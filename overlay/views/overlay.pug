@@ -1,0 +1,9 @@
+extends layout
+
+block body
+  h1 welcome to the overlay!!!
+
+  block scripts
+    script.
+      const accessToken = '#{user.accessToken}'
+      const channelId = '#{user.channelId}'
