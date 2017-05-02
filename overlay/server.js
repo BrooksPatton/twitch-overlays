@@ -46,4 +46,4 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/')
 }
 
-app.listen(port, () => console.log(`app listening on port ${port}`))
+app.listen(port, () => console.info(`app listening on port ${port}`))
