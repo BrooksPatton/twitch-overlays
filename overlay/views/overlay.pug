@@ -1,9 +1,12 @@
 extends layout
 
 block body
-  h1 welcome to the overlay!!!
 
-  block scripts
-    script.
-      const accessToken = '#{user.accessToken}'
-      const channelId = '#{user.channelId}'
+block scripts
+  script.
+    const accessToken = '#{user.accessToken}'
+    const channelId = '#{user.channelId}'
+  
+  script(src='/lib/p5.min.js')
+  script(src='/ball-class.js')
+  script(src='/main.js')
