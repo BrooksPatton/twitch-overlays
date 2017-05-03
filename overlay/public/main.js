@@ -3,6 +3,7 @@ const bitsNonce = 'wfyuplgjwyu5gwdhedhrersduywjg32'
 const cheerTopic = `channel-bits-events-v1.${channelId}`
 let cheers = []
 let gravity
+let sound
 
 socket.addEventListener('open', () => {
   sendPing(socket)
@@ -42,6 +43,10 @@ function addCheer(message) {
   cheers.push(new CheerBox(message))
 }
 
+function preload() {
+  sound = loadSound('/sound/188714__waveplay__happy-effect-3.wav')
+}
+
 function setup() {
   createCanvas(1280, 720)
   gravity = createVector(0, 10)
@@ -65,10 +70,12 @@ function draw() {
   if(cheers[0] && !cheers[0].stillAlive) cheers.shift()
 }
 
-setInterval(() => addCheer({
-  data: {
-    user_name: 'chantillycake',
-    chat_message: 'cheer1 Yay this is so fun!',
-    bits_used: 1,
-  }
-}), 5000)
+function test() {
+  addCheer({
+    data: {
+      user_name: 'chantillycake',
+      chat_message: 'cheer1 Yay this is so fun!',
+      bits_used: 1,
+    }
+  })
+}
