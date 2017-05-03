@@ -25,7 +25,7 @@ socket.addEventListener('message', event => {
     console.log('topic', data.data.topic)
     if(data.data.topic === cheerTopic) {
       console.log('cheer came in!')
-      addCheer()
+      addCheer(data.data.message)
     }
   }
 
@@ -38,8 +38,8 @@ function sendPing(socket) {
   }))
 }
 
-function addCheer(data) {
-  cheers.push(new CheerBox(data))
+function addCheer(message) {
+  cheers.push(new CheerBox(message))
 }
 
 function setup() {
@@ -56,10 +56,19 @@ function draw() {
     cheer.draw()
     cheer.update()
     cheer.applyForce(gravity)
-    cheer.checkEdges()
+
+    if(!cheer.diesSoon) {
+      cheer.checkEdges()
+    }
   }
 
   if(cheers[0] && !cheers[0].stillAlive) cheers.shift()
 }
 
-setInterval(addCheer, 10000)
+setInterval(() => addCheer({
+  data: {
+    user_name: 'chantillycake',
+    chat_message: 'cheer1 Yay this is so fun!',
+    bits_used: 1,
+  }
+}), 5000)
