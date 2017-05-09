@@ -26,6 +26,7 @@ socket.addEventListener('message', event => {
     console.log('topic', data.data.topic)
     if(data.data.topic === cheerTopic) {
       console.log('cheer came in!')
+      console.log('raw data', data.data)
       addCheer(data.data.message)
     }
   }
