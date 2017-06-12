@@ -27,7 +27,7 @@ socket.addEventListener('message', event => {
     if(data.data.topic === cheerTopic) {
       console.log('cheer came in!')
       console.log('raw data', data.data)
-      addCheer(data.data.message)
+      addCheer(JSON.parse(data.data.message))
     }
   }
 
@@ -72,11 +72,5 @@ function draw() {
 }
 
 function test() {
-  addCheer({
-    data: {
-      user_name: 'chantillycake',
-      chat_message: 'cheer1 Yay this is so fun!',
-      bits_used: 1,
-    }
-  })
+  addCheer({"data":{"user_name":"georgesguides","channel_name":"brookzerker","user_id":"151920796","channel_id":"75574155","time":"2017-05-11T02:13:39.977Z","chat_message":"cheer1","bits_used":1,"total_bits_used":2,"context":"cheer","badge_entitlement":null},"version":"1.0","message_type":"bits_event","message_id":"0865326f-1436-511c-a064-e77491b1825e"})
 }

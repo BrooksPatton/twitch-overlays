@@ -23,7 +23,7 @@ class CheerBox {
     this.width = (this.nameWidth < this.messageWidth ? this.messageWidth : this.nameWidth) + 20
     this.height = this.nameFontSize + this.messageFontSize + 20
 
-    sound.setVolume(0.04)
+    sound.setVolume(0.01)
     sound.play()
   }
 
